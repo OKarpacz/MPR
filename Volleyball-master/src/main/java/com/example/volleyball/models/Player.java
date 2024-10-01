@@ -15,7 +15,6 @@ public class Player {
     private String name;
     @NonNull
     private String sureName;
-    private int age;
     private int height;
     private String role;
 

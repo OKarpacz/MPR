@@ -1,5 +1,8 @@
 package com.example.volleyball.controllers;
 import com.example.volleyball.models.Player;
+
+import java.util.Optional;
+
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -14,14 +17,14 @@ public class PlayerController {
    public Player addPlayer(@RequestBody Player player) {
         return player;
    }
-
-   @DeleteMapping("/player/del/{playerId}")
-    public Player deletePlayer(@PathVariable int playerId) {
-        return new Player(playerId, "Rychu", "Gortat");
-   }
-
-    @PutMapping("player/edit/{playerId}")
+   //Czy to powinno być tak zrobione ???
+   @DeleteMapping("/player/{playerId}")
+    public String deletePlayer(@PathVariable int playerId) {
+       return "Player Deleted";
+    }
+    //Bad Request ???
+    @PutMapping("/player/{playerId}")
     public Player updatePlayer(@PathVariable int playerId, @RequestBody Player player) {
-        return player;
+        return new Player(playerId, "Michał", "Jordan");
     }
 }
