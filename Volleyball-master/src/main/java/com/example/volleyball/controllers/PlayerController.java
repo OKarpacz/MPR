@@ -22,12 +22,12 @@ public class PlayerController {
    public Player addPlayer(@RequestBody Player player) {
         return service.addPlayer(player);
    }
-   //Czy to powinno być tak zrobione ???
+  
    @DeleteMapping("/player/{playerId}")
     public String deletePlayer(@PathVariable int playerId) {
       return service.deletePlayerById(playerId);
     }
-    //Bad Request ???
+    
     @PutMapping("/player/{playerId}")
     public Player updatePlayer(@PathVariable int playerId, @RequestBody Player player) {
         return service.updatePlayer(player);
