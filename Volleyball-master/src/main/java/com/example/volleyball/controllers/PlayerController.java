@@ -3,6 +3,7 @@ import com.example.volleyball.models.Player;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 import com.example.volleyball.services.PlayerService;
 import lombok.RequiredArgsConstructor;
@@ -14,7 +15,7 @@ public class PlayerController {
     private final PlayerService service;
 
     @GetMapping("/player/{playerId}")  //endpoint to /player
-    public List <Player> getAllPlayers(@PathVariable int playerId) {
+    public List <Player> getAllPlayers(@PathVariable UUID playerId) {
         return List.of(service.getPlayerById(playerId));
    }
 
@@ -24,8 +25,8 @@ public class PlayerController {
    }
   
    @DeleteMapping("/player/{playerId}")
-    public String deletePlayer(@PathVariable int playerId) {
-      return service.deletePlayerById(playerId);
+    public void deletePlayer(@PathVariable UUID playerId) {
+       service.deletePlayerById(playerId);
     }
     
     @PutMapping("/player/{playerId}")
