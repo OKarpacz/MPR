@@ -11,4 +11,5 @@ public class AppConfig {
     //public JsonDeserializer jsonDeserializer() {
     //    return new JsonDeserializer() {};
     // }
+    //lol
 }
