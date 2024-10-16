@@ -1,45 +1,47 @@
 package com.example.volleyball.services;
 
 import com.example.volleyball.models.Player;
+import com.example.volleyball.repositories.PlayerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import com.example.volleyball.repositories.PlayerRepository;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
 public class PlayerService {
-private final PlayerRepository playerRepository;
-//   //Get by ID
-//       playerRepository.findById(id);
-//   //Get All
-//    playerRepository.findAll(id);
-//   //Delete Player
-//       playerRepository.deleteById(id);
-//   //Post Player
-//       playerRepository.save(new Player());
-//   //Put Player
-//   Player player = playerRepository.getReferenceById(id);
-//       player.setHeight(player.getHeight());
-//       player.setName(player.getName());
-//       player.setRole(player.getRole());
-//       player.setSureName(player.getSureName());
-//       return null;
+    private final PlayerRepository playerRepository;
 
-    public Player getPlayerById(UUID id){
-      return playerRepository.findById(id).orElse(null);
+    public Player getPlayerById(UUID id) {
+        //GET BY ID
+        playerRepository.getReferenceById(id);  //po id
+        return null;
     }
 
-    public Player addPlayer(Player player){
+    public List<Player> getAllPlayers() {
+        //GETALL
+        return playerRepository.findAll(); //wszystkich playerów szuka
+    }
+
+    public Player AddPlayer(Player player) {
+        //POST
+        return playerRepository.save(new Player()); //Zapis nowego playera do bazy
+
+    }
+
+    public void deletePlayer(UUID id) {
+        //DELETE BY ID
+        playerRepository.deleteById(id); //usuń po id
+    }
+
+    public Player updatePlayer(UUID id, Player playerFromRequest) {
+        //PUT
+        Player player = playerRepository.getReferenceById(id);
+        player.setAge(playerFromRequest.getAge());
+        player.setName(playerFromRequest.getName());
         return playerRepository.save(player);
     }
 
-    public void deletePlayerById(UUID id){
-        playerRepository.deleteById(id);
-    }
-
-     public Player updatePlayer(Player player){
-        return playerRepository.save(player);
-    }
+    ;
 }

@@ -4,25 +4,26 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.*;
 import org.hibernate.annotations.UuidGenerator;
-import org.springframework.context.annotation.Bean;
 
 import java.util.UUID;
 
-@Entity
+@Entity //encja
 @Getter
 @Setter //adnotacja bo @
 @NoArgsConstructor // konstruktor bezargumentowy
-//@AllArgsConstructor //konstruktor wszystko argumentowy
-//@RequiredArgsConstructor //konstror dla wymaganych argumentów
+@AllArgsConstructor //konstruktor wszystko argumentowy
+@RequiredArgsConstructor //konstror dla wymaganych argumentów
+
 public class Player {
-    //@NonNull
+    @NonNull
     @Id
     @UuidGenerator
     private UUID id;
-    //@NonNull // name nie może być nullem. Zawsze musi mieć wartść przypisaną
+    @NonNull // name nie może być nullem. Zawsze musi mieć wartść przypisaną
     private String name;
-    //@NonNull
+    @NonNull
     private String sureName;
+    private int age;
     private int height;
     private String role;
 
