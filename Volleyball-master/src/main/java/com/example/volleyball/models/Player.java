@@ -26,6 +26,7 @@ public class Player {
     private int age;
     private int height;
     private String role;
+    private String gender;
 
 
 }

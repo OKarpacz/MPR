@@ -1,4 +1,4 @@
-=package com.example.volleyball.controllers;
+package com.example.volleyball.controllers;
 
 import com.example.volleyball.models.Player;
 import com.example.volleyball.services.PlayerService;
@@ -20,7 +20,8 @@ public class PlayerController {
 
     @GetMapping("/player/{playerId}")  //endpoint to /player
     public Player getPlayer(@PathVariable UUID playerId) {
-        return service.getPlayerById(playerId);
+        //return service.getPlayerById(playerId);
+        return new Player();
     }
 
     @PostMapping("/addPlayer")
@@ -37,4 +38,10 @@ public class PlayerController {
     public Player updatePlayer(@PathVariable UUID playerId, @RequestBody Player player) {
         return service.updatePlayer(playerId, player);
     }
+    @GetMapping("/filter/{gender}/{role}")
+    public List<Integer> getFilter(@PathVariable String gender, @PathVariable String role){
+        return service.getFilter(gender,role);
+    }
+
+
 }
