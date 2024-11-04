@@ -3,7 +3,9 @@ package com.example.volleyball.services;
 import com.example.volleyball.models.Player;
 import com.example.volleyball.models.PlayerResponse;
 import com.example.volleyball.repositories.PlayerRepository;
+import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -52,10 +54,6 @@ public class PlayerService
 
     }
 
-    /*
-
-     */
-
     public PlayerResponse convertPlayerToResponse(Player player)
     {
         PlayerResponse playerResponse = new PlayerResponse();
@@ -77,6 +75,7 @@ public class PlayerService
                 .map(Player::getHeight)
                 .toList();
     }
+
 
 
 }
