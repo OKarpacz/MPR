@@ -1,0 +1,1 @@
+Projekt spring bootowy który zwraca na jakis endpoint liste stingów
